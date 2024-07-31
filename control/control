@@ -1,0 +1,11 @@
+Package: luci-app-lite-watchdog-mod
+Version: 1.0.16-2024-08-01
+Depends: libc, python3-pip, sms-tool, kmod-usb-serial, kmod-usb-serial-option, comgt
+Source: package/luci-app-lite-watchdog
+SourceName: luci-app-lite-watchdog
+Section: luci
+SourceDateEpoch: 1662223741
+Maintainer: OpenWrt LuCI community
+Architecture: all
+Installed-Size: 8358
+Description:  LuCI JS interface for the lite-watchdog scripts.
