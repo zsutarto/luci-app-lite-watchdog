@@ -1,7 +1,7 @@
 #!/bin/sh
 
-apk_name="luci-app-lite-watchdog-mod"
-version="1.0.16-2024-08-01"
+apk_name="luci-app-lite-watchdog"
+version="0.24.08.01"
 
 echo "Updating packages"
 if ! opkg update; then
