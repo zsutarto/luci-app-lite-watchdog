@@ -1,4 +1,4 @@
-Package: luci-app-lite-watchdog-mod
+Package: luci-app-lite-watchdog
 Version: 1.0.16-2024-08-01
 Depends: libc, python3-pip, sms-tool, kmod-usb-serial, kmod-usb-serial-option, comgt
 Source: package/luci-app-lite-watchdog
