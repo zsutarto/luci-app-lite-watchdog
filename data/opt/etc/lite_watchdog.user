@@ -1,4 +1,0 @@
-#!/bin/sh
-
-#fungsi untuk restart openclash (hilangkan pagar)
-#/etc/init.d/openclash restart
