@@ -22,16 +22,6 @@ if [ ! -f /etc/lite_watchdog.user ]; then
         chmod 777 /tmp/lite_watchdog 2>&1 &
 fi
 
-if [ ! -f /usr/lib/opkg/info/luci-app-lite-watchdog.prerm ]; then
-        touch /usr/lib/opkg/info/luci-app-lite-watchdog.prerm
-        chmod 777 /usr/lib/opkg/info/luci-app-lite-watchdog.prerm 2>&1 &
-fi
-
-if [ ! -f /usr/lib/opkg/info/luci-app-lite-watchdog.postinst ]; then
-        touch /usr/lib/opkg/info/luci-app-lite-watchdog.postinst
-        chmod 777 /usr/lib/opkg/info/luci-app-lite-watchdog.postinst 2>&1 &
-fi
-
 if [ ! -f /tmp/lite_watchdog ]; then
         touch /tmp/lite_watchdog
         chmod 777 /tmp/lite_watchdog 2>&1 &
