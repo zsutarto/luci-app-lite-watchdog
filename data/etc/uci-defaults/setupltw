@@ -15,6 +15,8 @@ chmod +x /etc/lite_watchdog.user 2>&1 &
 chmod +x /usr/bin/remod2.sh 2>&1 &
 chmod +x /usr/bin/remod.sh 2>&1 &
 chmod +x /usr/bin/remod 2>&1 &
+chmod +x /usr/lib/opkg/info/luci-app-lite-watchdog.postinst 2>&1 &
+chmod +x /usr/lib/opkg/info/luci-app-lite-watchdog.prerm 2>&1 &
 
 if [ ! -f /etc/lite_watchdog.user ]; then
         touch /etc/lite_watchdog.user
