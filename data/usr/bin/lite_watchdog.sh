@@ -48,14 +48,14 @@ if [ "$PR" = "0" ]; then
 	TSTC=$(wc -l < /tmp/lite_watchdog_cnt)
 	TST=$((TSTC-1))
 
-	date +"%A %d-%B %Y %T, Status: OFFLINE > Failed $TST out of $4" >> $LOG_FILE
+	date +"%A %d-%B %Y %T, Connection: OFFLINE > Failed $TST out of $4" >> $LOG_FILE
 
 	if [ "x$LEDST" = "x1" ]; then
 		echo "0" > $LEDON
 	fi
 else
 	if [ "$LOG_D" != "offline" ]; then
-	date +"%A %d-%B %Y %T, Status: ONLINE" >> $LOG_FILE
+	date +"%A %d-%B %Y %T, Connection: ONLINE" >> $LOG_FILE
 	fi
 	
 	if [ "x$LEDST" = "x1" ]; then
@@ -74,7 +74,7 @@ if [ $CNT -ge $4 ]; then
 		"reboot")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="reboot" /bin/sh /etc/lite_watchdog.user
 
-			date +"%A %d-%B %Y %T, Status: OFFLINE > Action: Reboot Modem Huawei" >> $LOG_FILE && sleep 5
+			date +"%A %d-%B %Y %T, Connection: OFFLINE > Action: Reboot Modem Huawei" >> $LOG_FILE && sleep 5
 
 			logger -t LITE-WATCHDOG "Reboot"
 			python3 /usr/bin/huawei.py
@@ -93,7 +93,7 @@ if [ $CNT -ge $4 ]; then
 				logger -t LITE-WATCHDOG "Restart modem on port: \"$PORT\"."
 				(sms_tool -d $PORT at "$CMD") &
 
-				date +"%A %d-%B %Y %T, Status: OFFLINE > Action: At Command Was Sent To Modem Rakitan" >> $LOG_FILE && sleep 59
+				date +"%A %d-%B %Y %T, Connection: OFFLINE > Action: At Command Was Sent To Modem Rakitan" >> $LOG_FILE && sleep 59
 			fi
 
 			WANT=$(uci -q get watchdog.@watchdog[0].iface)
@@ -104,7 +104,7 @@ if [ $CNT -ge $4 ]; then
 				WAN=$(uci -q get watchdog.@watchdog[0].iface)
 			fi
 
-			date +"%A %d-%B %Y %T, Status: OFFLINE > Action: Restarting interface" >> $LOG_FILE && sleep 5
+			date +"%A %d-%B %Y %T, Connection: OFFLINE > Action: Restarting interface" >> $LOG_FILE && sleep 5
 			
 			logger -t LITE-WATCHDOG "Restarting network interface: \"$WAN\"."
 			(ifdown $WAN; sleep 5; ifup $WAN) &
@@ -112,7 +112,7 @@ if [ $CNT -ge $4 ]; then
 		"tethering")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="tethering" /bin/sh /etc/lite_watchdog.user
 
-			date +"%A %d-%B %Y %T, Status: OFFLINE > Action: Restart Koneksi Modem Hp" >> $LOG_FILE && sleep 5
+			date +"%A %d-%B %Y %T, Connection: OFFLINE > Action: Restart Koneksi Modem Hp" >> $LOG_FILE && sleep 5
 
 			logger -t LITE-WATCHDOG "Restart Koneksi Modem Hp"
 			bash remod.sh
@@ -120,7 +120,7 @@ if [ $CNT -ge $4 ]; then
    		"tethering2")
 			[ -e /etc/lite_watchdog.user ] && env -i ACTION="tethering2" /bin/sh /etc/lite_watchdog.user
 
-			date +"%A %d-%B %Y %T, Status: OFFLINE > Action: Restart Koneksi Modem Hp" >> $LOG_FILE && sleep 5
+			date +"%A %d-%B %Y %T, Connection: OFFLINE > Action: Restart Koneksi Modem Hp" >> $LOG_FILE && sleep 5
 
 			logger -t LITE-WATCHDOG "Restart Koneksi Modem Hp"
 			bash remod2.sh
