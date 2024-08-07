@@ -117,6 +117,14 @@ if [ $CNT -ge $4 ]; then
 			logger -t LITE-WATCHDOG "Restart Koneksi Modem Hp"
 			bash remod.sh
 			;;
+   		"tethering2")
+			[ -e /etc/lite_watchdog.user ] && env -i ACTION="tethering2" /bin/sh /etc/lite_watchdog.user
+
+			date +"%A %d-%B %Y %T, Status: OFFLINE > Action: Restart Koneksi Modem Hp" >> $LOG_FILE && sleep 5
+
+			logger -t LITE-WATCHDOG "Restart Koneksi Modem Hp"
+			bash remod2.sh
+			;;
 			
 	esac
 fi
